@@ -6,6 +6,7 @@ $string['report_courses'] = "Courses report";
 $string['report_users'] = "Users report";
 $string['report_sql'] = "SQL Report";
 $string['managereports'] = "Manage reports";
+$string['privacy:metadata'] = 'The Configurable Reports block only displays and exports existing data.';
 
 $string['report'] = "Report";
 $string['reports'] = "Reports";
