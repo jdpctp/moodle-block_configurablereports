@@ -129,6 +129,7 @@ function cr_add_jsordering($cssid) {
         $("'.$cssid.'").tablesorter();
     });';
     echo html_writer::script($script);
+    if ($CFG->branch >= 33) { // Moodle 3.3+.
     ?>
 
         <style type="text/css">
@@ -148,6 +149,27 @@ function cr_add_jsordering($cssid) {
         }
         </style>
     <?php
+    } else {
+    ?>
+
+        <style type="text/css">
+        <?php echo $cssid; ?> th.header{
+            background-image:url(<?php echo $OUTPUT->pix_url('normal', 'block_configurable_reports'); ?>);
+            background-position:right center;
+            background-repeat:no-repeat;
+            cursor:pointer;
+        }
+
+        <?php echo $cssid; ?> th.headerSortUp{
+         background-image:url(<?php echo $OUTPUT->pix_url('asc', 'block_configurable_reports');?>);
+        }
+
+        <?php echo $cssid; ?> th.headerSortDown{
+         background-image:url(<?php echo $OUTPUT->pix_url('desc', 'block_configurable_reports');?>);
+        }
+        </style>
+    <?php
+    }
 }
 
 function urlencode_recursive($var) {
